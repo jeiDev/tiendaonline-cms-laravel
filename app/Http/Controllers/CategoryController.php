@@ -47,8 +47,8 @@ class CategoryController extends Controller
         $category->name = e($request->name);
         $category->module = e($request->module);
         $category->slug = Str::slug($request->name);
-
         $category->save();
+
         return redirect()->route('categories.index')->with('info', 'Added succefully');
     }
 
@@ -69,9 +69,10 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function edit(Category $category)
+    public function edit($id)
     {
-        //
+        $category = Category::where('id', $id)->firstOrFail();
+        return view("admin.categories.edit", compact('category'));
     }
 
     /**
@@ -81,9 +82,21 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(UpdateCategoryRequest $request, Category $category)
+    public function update(UpdateCategoryRequest $request, $id)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories|max:20',
+            'module' => 'required|max:20'
+        ]);
+
+        $category = Category::findOrFail($id);
+
+        $category->name = e($request->name);
+        $category->module = e($request->module);
+        $category->slug = Str::slug($request->name);
+        $category->save();
+
+        return redirect()->route('categories.index')->with('info', 'Updated succefully');
     }
 
     /**

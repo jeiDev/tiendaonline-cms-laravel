@@ -58,6 +58,18 @@ class CategoryController extends Controller
      * @param  \App\Models\Category  $category
      * @return \Illuminate\Http\Response
      */
+    public function module($module)
+    {
+        $categories = Category::where('module', $module)->orderBy('id', 'DESC')->paginate(15);
+        return view("admin.categories.index", compact('categories'));
+    }
+
+     /**
+     * Display the specified resource.
+     *
+     * @param  \App\Models\Category  $category
+     * @return \Illuminate\Http\Response
+     */
     public function show(Category $category)
     {
         //

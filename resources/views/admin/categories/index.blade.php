@@ -16,12 +16,22 @@
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0">
+
+        <ul class="nav nav-tabs">
+            @foreach (getModulesArray() as $module => $item)
+                <li class="nav-item">
+                    <a class="nav-link" href="{{route('categories.module', $module)}}">
+                        {{$item}}
+                    </a>
+                </li>
+            @endforeach
+        </ul>
+
         <table class="table table-hover text-nowrap">
             <thead>
                 <tr>
                     <th>ID</th>
                     <th>Name</th>
-                    <th>Module</th>
                     <th colspan="2">&nbsp;</th>
                 </tr>
             </thead>
@@ -30,7 +40,6 @@
                 <tr>
                     <td scope="row">{{$category->id}}</td>
                     <td>{{$category->name}}</td>
-                    <td>{{$category->module}}</td>
                     <td width="10px">
                         <a href="{{route('categories.edit', $category->id)}}" class="btn btn-default">
                             <i class="fas fa-edit"></i>

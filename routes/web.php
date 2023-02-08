@@ -16,6 +16,8 @@ use App\Http\Controllers\CategoryController;
 
 Route::resource('admin/categories', CategoryController::class)->names('categories');
 
+Route::get('admin/category/{module}', [CategoryController::class, 'module'])->name('categories.module');
+
 Route::get('/', function () {
     return view('welcome');
 });

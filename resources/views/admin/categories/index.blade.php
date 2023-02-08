@@ -9,18 +9,13 @@
         <h3 class="card-title">Section Categories</h3>
 
         <div class="card-tools">
-            <div class="input-group input-group-sm" style="width: 150px;">
-                <input type="text" name="table_search" class="form-control float-right" placeholder="Search">
-
-                <div class="input-group-append">
-                    <button type="submit" class="btn btn-default"><i class="fas fa-search"></i></button>
-                </div>
-            </div>
+            <a type="button" class="btn btn-tool" href="{{route('categories.create')}}">
+                <h3 class="card-title">Add <i class="fas fa-plus"></i></h3>
+            </a>
         </div>
     </div>
     <!-- /.card-header -->
     <div class="card-body table-responsive p-0">
-        <a class="m-2 float-right btn btn-primary" href="{{route('categories.create')}}">Create</a>
         <table class="table table-hover text-nowrap">
             <thead>
                 <tr>
@@ -38,7 +33,7 @@
                     <td>{{$category-module}}</td>
                     <td width="10px">
                         <a href="{{route('categories.edit', $category->id)}}" class="btn btn-default">
-                        <i class="fas fa-edit"></i>
+                            <i class="fas fa-edit"></i>
                         </a>
                     </td>
                     <td width="10px">
@@ -52,7 +47,11 @@
                 @endforeach
             </tbody>
         </table>
+        {{$categories->render()}}
     </div>
     <!-- /.card-body -->
+    <div class="card-footer">
+        Footer
+    </div>
 </div>
 @endsection

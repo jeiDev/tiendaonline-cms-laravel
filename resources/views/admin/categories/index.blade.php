@@ -19,11 +19,11 @@
 
         <ul class="nav nav-tabs">
             @foreach (getModulesArray() as $module => $item)
-                <li class="nav-item">
-                    <a class="nav-link" href="{{route('categories.module', $module)}}">
-                        {{$item}}
-                    </a>
-                </li>
+            <li class="nav-item">
+                <a class="nav-link" href="{{route('categories.module', $module)}}">
+                    {{$item}}
+                </a>
+            </li>
             @endforeach
         </ul>
 
@@ -46,10 +46,10 @@
                         </a>
                     </td>
                     <td width="10px">
-                        {!! Form::open(['route' => ['categories.destroy', $category->id], "method" => 'DELETE']) !!}
-                        <a href="{{route('categories.edit', $category->id)}}" class="btn btn-default">
+                        {!! Form::open(['route'=>['categories.destroy',$category->id], 'method'=>'DELETE']) !!}
+                        <button class="btn btn-danger">
                             <i class="fas fa-trash-alt"></i>
-                        </a>
+                        </button>
                         {!! Form::close() !!}
                     </td>
                 </tr>

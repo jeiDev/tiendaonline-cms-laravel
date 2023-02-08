@@ -28,9 +28,9 @@
             <tbody>
                 @foreach ($categories as $category)
                 <tr>
-                    <td scope="row">{{$category-id}}</td>
-                    <td>{{$category-name}}</td>
-                    <td>{{$category-module}}</td>
+                    <td scope="row">{{$category->id}}</td>
+                    <td>{{$category->name}}</td>
+                    <td>{{$category->module}}</td>
                     <td width="10px">
                         <a href="{{route('categories.edit', $category->id)}}" class="btn btn-default">
                             <i class="fas fa-edit"></i>

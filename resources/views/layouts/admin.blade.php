@@ -167,9 +167,9 @@
 
   <footer class="main-footer">
     <div class="float-right d-none d-sm-block">
-      <b>Version</b> 3.0.3-pre
+      <b>Version</b> 0.1.0
     </div>
-    <strong>Copyright &copy; 2020-2025 <a href="http://lanube.cu.ma">LaNube.cu.ma</a>.</strong> All rights
+    <strong>Copyright &copy; 2023 <a href="#">JeiDev</a>.</strong> All rights
     reserved.
   </footer>
 

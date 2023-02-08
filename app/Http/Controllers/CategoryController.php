@@ -6,6 +6,8 @@ use App\Models\Category;
 use App\Http\Requests\StoreCategoryRequest;
 use App\Http\Requests\UpdateCategoryRequest;
 
+use Illuminate\Support\Str;
+
 class CategoryController extends Controller
 {
     /**
@@ -37,7 +39,17 @@ class CategoryController extends Controller
      */
     public function store(StoreCategoryRequest $request)
     {
-        //
+        $request->validate([
+            'name' => 'required|unique:categories|max:20',
+            'module' => 'required|max:20'
+        ]);
+        $category = new Category;
+        $category->name = e($request->name);
+        $category->module = e($request->module);
+        $category->slug = Str::slug($request->name);
+
+        $category->save();
+        return redirect()->route('categories.index')->with('info', 'Added succefully');
     }
 
     /**

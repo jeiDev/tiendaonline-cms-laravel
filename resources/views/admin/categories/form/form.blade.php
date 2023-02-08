@@ -4,5 +4,5 @@
 </div>
 <div class="form-group">
     {!! Form::label('module', 'Module') !!}
-    {!! Form::text('module', null, ['class'=>'form-control']) !!}
+    {!! Form::select('module', getModulesArray(), 0, ['class'=>'form-control']) !!}
 </div>
